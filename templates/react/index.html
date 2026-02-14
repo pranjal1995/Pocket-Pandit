@@ -25,7 +25,7 @@
         const [pujas, setPujas] = useState([]);
 
         useEffect(() => {
-          fetch('../../data/example_pujas.json')
+          fetch('./data/example_pujas.json')
             .then(r => r.json())
             .then(setPujas)
             .catch(e => console.error(e));
