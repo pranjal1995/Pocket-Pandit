@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pocket Pandit - Satyanarayan Puja Guide</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #d4a574;
+      --primary-dark: #8b6f47;
+      --secondary: #2c3e50;
+      --accent: #c97c5c;
+      --light-bg: #f5f1ee;
+      --card-bg: #ffffff;
+      --text-primary: #1a1a1a;
+      --text-secondary: #555555;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Noto Sans', sans-serif;
+      background: linear-gradient(135deg, #f5f1ee 0%, #e8dfd7 100%);
+      min-height: 100vh;
+      color: var(--text-primary);
+      padding: 0;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      font-size: 1em;
+      opacity: 0.9;
+      font-weight: 400;
+    }
+
+    .language-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 0.95em;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 1000;
+      transition: all 0.3s ease;
+      font-family: 'Noto Sans', 'Noto Sans Devanagari', sans-serif;
+    }
+
+    .language-toggle:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 45px;
+      margin: 25px 0;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      animation: slideIn 0.5s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    h2 {
+      color: var(--primary-dark);
+      font-size: 2em;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    h3 {
+      color: var(--accent);
+      font-size: 1.6em;
+      margin-bottom: 25px;
+      font-weight: 700;
+      font-family: 'Noto Sans', 'Noto Sans Devanagari', sans-serif;
+    }
+
+    h4 {
+      color: var(--primary-dark);
+      font-size: 1.1em;
+      margin: 20px 0 12px 0;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    p {
+      color: var(--text-secondary);
+      font-size: 1em;
+      line-height: 1.8;
+      margin: 10px 0;
+      font-family: 'Noto Sans', 'Noto Sans Devanagari', sans-serif;
+    }
+
+    .description {
+      color: #888;
+      font-size: 0.95em;
+      margin-bottom: 25px;
+    }
+
+    button {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 0.95em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin: 10px 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    .button-group {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .step-indicator {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      padding: 18px;
+      border-radius: 8px;
+      margin-bottom: 25px;
+      font-weight: 600;
+      text-align: center;
+      font-size: 1.05em;
+    }
+
+    .instruction-box {
+      background: #faf8f5;
+      border-left: 5px solid var(--primary);
+      padding: 22px;
+      border-radius: 8px;
+      margin: 20px 0;
+      line-height: 1.85;
+    }
+
+    .mantra-box {
+      background: #fef9f3;
+      border-left: 5px solid var(--accent);
+      padding: 22px;
+      border-radius: 8px;
+      margin: 20px 0;
+      color: var(--accent);
+      font-weight: 500;
+      font-style: italic;
+      font-family: 'Noto Sans', 'Noto Sans Devanagari', serif;
+    }
+
+    .samagri-box {
+      background: #e8f4f8;
+      border-left: 5px solid #2196F3;
+      padding: 22px;
+      border-radius: 8px;
+      margin: 20px 0;
+      color: #1565c0;
+      font-weight: 600;
+      font-family: 'Noto Sans', 'Noto Sans Devanagari', sans-serif;
+    }
+
+    .audio-controls {
+      background: #f5f1ee;
+      border-radius: 8px;
+      padding: 18px;
+      margin: 20px 0;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .audio-btn {
+      background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9em;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .audio-btn:hover {
+      background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+      transform: translateY(-2px);
+    }
+
+    ul {
+      list-style: none;
+      text-align: left;
+      margin: 15px 0;
+    }
+
+    li {
+      padding: 12px 16px;
+      margin: 8px 0;
+      background: var(--light-bg);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      transition: all 0.3s ease;
+      font-family: 'Noto Sans', 'Noto Sans Devanagari', sans-serif;
+    }
+
+    li:hover {
+      background: #e8dfd7;
+      transform: translateX(5px);
+    }
+
+    input[type="checkbox"] {
+      margin-right: 15px;
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      accent-color: var(--primary);
+    }
+
+    .completion-message {
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .completion-message h2 {
+      font-size: 2.2em;
+      margin-bottom: 25px;
+      color: #2e7d32;
+    }
+
+    .completion-message p {
+      font-size: 1.05em;
+      line-height: 1.9;
+      color: var(--text-secondary);
+      margin-bottom: 30px;
+    }
+
+    .devanagari {
+      font-family: 'Noto Sans Devanagari', serif;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.8em;
+      }
+
+      h2 {
+        font-size: 1.4em;
+      }
+
+      h3 {
+        font-size: 1.3em;
+      }
+
+      .card {
+        padding: 25px;
+      }
+
+      .language-toggle {
+        padding: 10px 16px;
+        font-size: 0.8em;
+      }
+
+      header {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<button class="language-toggle" onclick="toggleLanguage()" id="langBtn">भाषा बदलें</button>
+
+<header>
+  <h1>Pocket Pandit</h1>
+  <p class="subtitle">Your Complete Guide to Satyanarayan Puja</p>
+</header>
+
+<div class="container">
+
+  <!-- Home Screen -->
+  <div id="homeScreen" class="card">
+    <h2 id="homeTitle">Satyanarayan Puja</h2>
+    <p class="description" id="homeDesc">A comprehensive step-by-step guide to performing the sacred Satyanarayan Puja with authenticity and devotion. Learn each ritual, mantra, and preparation needed for this auspicious ceremony.</p>
+    <div class="button-group">
+      <button onclick="goToSamagri()">View Checklist</button>
+    </div>
+  </div>
+
+  <!-- Samagri Checklist Screen -->
+  <div id="samagriScreen" class="card hidden">
+    <h2 id="samagriTitle">Samagri Checklist</h2>
+    <p class="description" id="samagriDesc">Gather all items before starting the Puja. Check them off as you collect them.</p>
+    <ul id="samagriList">
+      <li><input type="checkbox"> <span class="devanagari">कलश</span> - Kalash (Pitcher)</li>
+      <li><input type="checkbox"> <span class="devanagari">नारियल</span> - Coconut</li>
+      <li><input type="checkbox"> <span class="devanagari">आम की पत्तियां</span> - Mango Leaves</li>
+      <li><input type="checkbox"> <span class="devanagari">तुलसी</span> - Tulsi Leaves</li>
+      <li><input type="checkbox"> <span class="devanagari">पंचामृत</span> - Panchamrit</li>
+      <li><input type="checkbox"> <span class="devanagari">फूल</span> - Flowers</li>
+      <li><input type="checkbox"> <span class="devanagari">घी का दीये</span> - Ghee Lamps</li>
+      <li><input type="checkbox"> <span class="devanagari">चावल</span> - Uncooked Rice</li>
+      <li><input type="checkbox"> <span class="devanagari">मिठाई</span> - Sweets</li>
+      <li><input type="checkbox"> <span class="devanagari">अगरबत्ती</span> - Incense</li>
+    </ul>
+    <div class="button-group">
+      <button onclick="startPuja()">Start Puja</button>
+      <button onclick="goHome()">Back to Home</button>
+    </div>
+  </div>
+
+  <!-- Puja Steps Screen -->
+  <div id="pujaScreen" class="card hidden">
+    <div class="step-indicator" id="stepCounter"></div>
+    <h3 id="stepTitle"></h3>
+    
+    <div class="instruction-box">
+      <h4>What to Do:</h4>
+      <p id="instruction"></p>
+    </div>
+
+    <div class="mantra-box">
+      <h4>Mantra to Recite:</h4>
+      <p id="mantra"></p>
+    </div>
+
+    <div class="samagri-box">
+      <h4>Items Needed:</h4>
+      <p id="samagri"></p>
+    </div>
+
+    <div class="audio-controls">
+      <button class="audio-btn" onclick="playMantraAudio()">🔊 Hear Mantra</button>
+      <button class="audio-btn" onclick="playBellSound()">🔔 Bell Sound</button>
+      <button class="audio-btn" onclick="playConchSound()">📯 Conch Sound</button>
+    </div>
+
+    <div class="button-group">
+      <button onclick="nextStep()">Next Step →</button>
+      <button onclick="goHome()">Exit Puja</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+
+let language = "english";
+
+let steps = [
+  {
+    title_en: "Begin - Sit and Settle",
+    title_hi: "शुरुआत - बैठ जाएँ और शांत हो जाएँ",
+    instruction_en: "Find a clean, quiet space facing east. Sit on the floor with legs crossed or on a chair. Take a few deep breaths. Calm your mind and let go of all worldly thoughts. This is your sacred time with the divine. Feel the peace and sanctity of this moment.",
+    instruction_hi: "साफ, शांत जगह खोजें और पूर्व की ओर मुंह करें। पालथी मारकर या कुर्सी पर बैठें। कुछ गहरी सांसें लें। अपने मन को शांत करें और सभी सांसारिक विचारों को छोड़ दें। यह दिव्य के साथ आपका पवित्र समय है।",
+    mantra_en: "Om Namah Shivaya - Acknowledge the divine presence within and around you",
+    mantra_hi: "ॐ नमः शिवाय - अपने भीतर और चारों ओर दिव्य उपस्थिति को स्वीकार करें",
+    samagri_en: "Clean space, Water bowl, Seat, Mat"
+  },
+  {
+    title_en: "Purification - Achaman & Hands",
+    title_hi: "शुद्धिकरण - आचमन और हाथ धोना",
+    instruction_en: "Rinse your mouth with water and sip water three times. Wash your hands and feet. Then take water in your right hand, whisper a prayer, and sprinkle it around you clockwise. You're creating a sacred space. Smell flowers if available. Feel yourself entering the divine realm.",
+    instruction_hi: "पानी से अपना मुंह कुल्ला करें और तीन बार पानी पिएं। हाथ और पैर धोएं। फिर दाहिने हाथ में पानी लें, प्रार्थना फुसफुसाएं, और अपने चारों ओर दक्षिणावर्त छिड़कें। आप एक पवित्र स्थान बना रहे हैं।",
+    mantra_en: "Om Pavitram, Pavitram - May this space be pure, may I be pure",
+    mantra_hi: "ॐ पवित्रम्, पवित्रम् - यह स्थान पवित्र हो, मैं पवित्र हूँ",
+    samagri_en: "Water, Flowers (optional)"
+  },
+  {
+    title_en: "Invoke & Welcome - Call to Ganesha",
+    title_hi: "आह्वान - गणेश को बुलाना",
+    instruction_en: "Place flowers before you. Ring the bell gently. Close your eyes and call Lord Ganesha in your mind. Say his name softly or silently. Offer flowers and rice. Ganesha removes all obstacles. Feel his presence blessing your puja. Take a moment - don't rush.",
+    instruction_hi: "अपने सामने फूल रखें। घंटी हल्के से बजाएं। आँखें बंद करें और गणेश को अपने मन में बुलाएं। उनका नाम धीरे से या मन ही मन में कहें। फूल और चावल अर्पित करें। गणेश बाधाओं को दूर करते हैं।",
+    mantra_en: "Om Gam Ganapataye Namah, Jai Ganesha, Jai Mangal Murti",
+    mantra_hi: "ॐ गं गणपतये नमः, जय गणेश, जय मंगल मूर्ति",
+    samagri_en: "Flowers, Uncooked rice, Bell"
+  },
+  {
+    title_en: "Set the Sacred Space - Kalash Setup",
+    title_hi: "पवित्र स्थान - कलश स्थापना",
+    instruction_en: "Place the Kalash (pitcher) in the center. Fill it with water slowly, feeling each drop as sacred. Place coconut on top - it represents the divine head. Arrange mango leaves all around it like a crown. Step back and look - you've created the focal point of your puja. Ring the bell three times.",
+    instruction_hi: "कलश को केंद्र में रखें। धीरे-धीरे पानी भरें, हर बूंद को पवित्र मानते हुए। नारियल को ऊपर रखें - यह दिव्य सिर का प्रतिनिधि है। चारों ओर आम की पत्तियों को मुकुट की तरह लगाएं। पीछे हटकर देखें - आपने पूजा का केंद्रबिंदु बना दिया है। घंटी तीन बार बजाएं।",
+    mantra_en: "Om Prithvyai Namah, Jai Maa, Jai Kalashi Maa - Earth Mother, bless this sacred vessel",
+    mantra_hi: "ॐ पृथ्व्यै नमः, जय माँ, जय कलशी माँ - माता पृथ्वी को नमस्कार",
+    samagri_en: "Kalash, Water, Coconut, Mango leaves, Bell"
+  },
+  {
+    title_en: "Intention & Promise - Sankalp",
+    title_hi: "संकल्प - पवित्र संकल्प लेना",
+    instruction_en: "Stand up. Hold flowers and water in your right hand. Feel your heartbeat. Speak your name out loud. Tell the universe why you're here - for health, peace, family happiness, or spiritual growth. Be honest, be sincere. Make this promise not just with words but with your entire being. Bow slightly.",
+    instruction_hi: "खड़े हो जाएँ। दाहिने हाथ में फूल और पानी लें। अपनी दिल की धड़कन को महसूस करें। अपना नाम जोर से कहें। ब्रह्मांड को बताएँ कि आप यहाँ क्यों हैं। ईमानदार और सच्चे रहें। सिर्फ शब्दों से नहीं, अपनी पूरी सत्ता से यह वचन दें।",
+    mantra_en: "I [Your Name], with a pure heart, seek blessings for my family's welfare and spiritual growth",
+    mantra_hi: "मैं [आपका नाम], शुद्ध हृदय से, अपने परिवार के कल्याण और आध्यात्मिक विकास के लिए आशीर्वाद चाहता हूँ",
+    samagri_en: "Flowers, Water, Your sincere intention"
+  },
+  {
+    title_en: "Worship the Space - First Offerings",
+    title_hi: "पूजा - पहली भेंटें",
+    instruction_en: "Sit again. Now offer flowers, rice, and water around the Kalash. Don't rush - do this slowly and mindfully. With each offering, whisper a blessing. Feel the positive energy filling the space. Light incense and let the aroma fill your area. You're not just doing rituals - you're communing with the divine.",
+    instruction_hi: "फिर से बैठ जाएँ। अब कलश के चारों ओर फूल, चावल और पानी अर्पित करें। जल्दबाजी न करें - धीरे और सावधानी से करें। हर भेंट के साथ आशीर्वाद फुसफुसाएं। सकारात्मक ऊर्जा को महसूस करें। अगरबत्ती जलाएँ और सुगंध को फैलने दें।",
+    mantra_en: "Om Pushpam Pushtim Astu - May my offerings bring abundance and grace",
+    mantra_hi: "ॐ पुष्पं पुष्टिम् अस्तु - मेरी भेंटें समृद्धि और कृपा लाएँ",
+    samagri_en: "Flowers, Rice, Water, Incense, Sandalwood paste"
+  },
+  {
+    title_en: "Light & Sound - Bell & Lamp",
+    title_hi: "प्रकाश और ध्वनि - घंटी और दीये",
+    instruction_en: "Light the first lamp with deep reverence. Ring the bell - listen to its sound fade away. This is the sound of the universe. Light more lamps slowly, one by one. With each lamp, ring the bell. The combination of light and sound purifies everything. Feel the sacredness increasing. You're moving into deeper prayer now.",
+    instruction_hi: "पहली दीप भक्ति से जलाएँ। घंटी बजाएँ - इसकी ध्वनि को सुनें। यह ब्रह्मांड की ध्वनि है। धीरे-धीरे और दीये जलाएँ। हर दीप के साथ घंटी बजाएँ। प्रकाश और ध्वनि सब कुछ को पवित्र करती है।",
+    mantra_en: "Om Jyoti Svarupaya Namah - I bow to the infinite light",
+    mantra_hi: "ॐ ज्योति स्वरूपाय नमः - अनंत प्रकाश को नमस्कार",
+    samagri_en: "Oil lamps, Ghee, Cotton wicks, Matches"
+  },
+  {
+    title_en: "The Fire Ritual - Hawan",
+    title_hi: "अग्नि अनुष्ठान - हवन",
+    instruction_en: "Light the hawan fire carefully. Let it settle. Now, slowly take ghee on a spoon. Pause before each offering - breathe, center yourself, then pour into the fire saying 'Swaha'. Let the flames rise. Do 21, 51, or 108 offerings - whatever feels right. Don't count - just feel the rhythm. Each offering is a prayer, each flame carries your wish upward.",
+    instruction_hi: "हवन की आग को सावधानीपूर्वक जलाएँ। इसे शांत होने दें। अब धीरे-धीरे चम्मच में घी लें। हर आहुति से पहले रुकें - सांस लें, अपने आप को केंद्रित करें, फिर 'स्वाहा' कहते हुए आग में डालें। लपटों को उठने दें। जितनी आहुति सही लगे - 21, 51 या 108। गिनती न करें - बस लय को महसूस करें।",
+    mantra_en: "Om Namah Shivaya Swaha, Om Satyanarayan Namah Swaha, Om Lakshmi Narayan Swaha",
+    mantra_hi: "ॐ नमः शिवाय स्वाहा, ॐ सत्यनारायण नमः स्वाहा, ॐ लक्ष्मी नारायण स्वाहा",
+    samagri_en: "Hawan Kund, Ghee, Wood, Hawan samagri, Spoon"
+  },
+  {
+    title_en: "The Story - Katha",
+    title_hi: "कथा पाठ",
+    instruction_en: "Now comes the heart of the puja - the story. This is not just recitation. Read or listen to the Satyanarayan Katha slowly. Let each word sink in. The story speaks of five merchants who found blessings through truth and devotion. As you hear it, see yourself in the story. Feel the lesson. Pause, breathe, absorb. This is where real transformation happens.",
+    instruction_hi: "अब पूजा का हृदय आता है - कथा। यह केवल पाठ नहीं है। सत्यनारायण कथा को धीरे-धीरे पढ़ें या सुनें। हर शब्द को अवशोषित होने दें। कहानी पाँच व्यापारियों की है जिन्होंने सत्य और भक्ति से आशीर्वाद पाए। जैसे आप सुनते हैं, अपने आप को कहानी में देखें। सबक को महसूस करें।",
+    mantra_en: "May the wisdom of truth and devotion enter my heart - The blessed story of Satyanarayan",
+    mantra_hi: "सत्य और भक्ति के ज्ञान को मेरे हृदय में प्रवेश करने दें",
+    samagri_en: "Satyanarayan Katha book or spiritual recording, Quiet mind, Open heart"
+  },
+  {
+    title_en: "Reverence & Gratitude - Aarti",
+    title_hi: "आरती - प्रार्थना और कृतज्ञता",
+    instruction_en: "Take the 5-7 burning lamps. Ring the bell continuously - a gentle, rhythmic sound. Move the lamps in circles before the Kalash - up, down, around slowly. This is not a physical movement - this is your love and gratitude expressed through light. Feel every cell of your body vibrating with devotion. Let tears come if they wish. You are surrendering to the divine.",
+    instruction_hi: "5-7 जलते दीये लें। लगातार घंटी बजाएँ - कोमल, लयबद्ध ध्वनि। कलश के सामने दीयों को धीरे-धीरे घुमाएँ - ऊपर, नीचे, चारों ओर। यह शारीरिक गति नहीं है - यह आपकी भक्ति और कृतज्ञता का प्रकाश से प्रकट होना है। अपने शरीर के हर कण को भक्ति से पूरित महसूस करें। आँसु आएँ तो आने दें। आप दिव्य को समर्पित हो रहे हैं।",
+    mantra_en: "Om Aarti Bhagavati Namah, Jai Satyanarayan, Jai Jai Satyanarayan",
+    mantra_hi: "ॐ आरती भगवती नमः, जय सत्यनारायण, जय जय सत्यनारायण",
+    samagri_en: "Oil lamps (7 is auspicious), Bell, Your whole being"
+  },
+  {
+    title_en: "Closing - Circumambulation",
+    title_hi: "परिक्रमा - अंतिम परिक्रमा",
+    instruction_en: "Walk around the Kalash slowly, clockwise. Don't just walk - float. With each step, you're absorbing the blessings. Complete 3, 7, or 11 rounds depending on how you feel. Chant the mantra softly. On your final round, bow deeply. Thank the divine for this sacred time. You've completed the ritual, but the blessings stay with you.",
+    instruction_hi: "कलश के चारों ओर धीरे-धीरे, दक्षिणावर्त चलें। सिर्फ चलें नहीं - तैरें। हर कदम के साथ आशीर्वाद को अवशोषित करें। 3, 7 या 11 परिक्रमा करें। मंत्र को धीरे-धीरे गाएँ। अंतिम परिक्रमा पर गहरा अभिनंदन करें। दिव्य को इस पवित्र समय के लिए धन्यवाद दें।",
+    mantra_en: "Om Satyanarayan Jai Satyanarayan, Om Namah Shivaya",
+    mantra_hi: "ॐ सत्यनारायण जय सत्यनारायण, ॐ नमः शिवाय",
+    samagri_en: "Space around Kalash, Your heart, Your gratitude"
+  },
+  {
+    title_en: "Blessing & Prasad - Share the Grace",
+    title_hi: "प्रसाद - आशीर्वाद वितरित करना",
+    instruction_en: "Take the blessed sweets. Offer them to family and friends first. With each person, pause and bless them. Then eat your share slowly, mindfully. Each bite is divine. Drink the blessed water from the Kalash. Feel the puja complete. The blessings don't end here - they go with you. Live with the awareness that you are blessed, guided, protected.",
+    instruction_hi: "आशीर्वादित मिठाई लें। पहले परिवार और दोस्तों को दें। हर व्यक्ति को रुककर आशीर्वाद दें। फिर अपना हिस्सा धीरे-धीरे, सावधानी से खाएँ। हर काटा दिव्य है। कलश का आशीर्वादित पानी पिएँ। पूजा को पूरा महसूस करें। आशीर्वाद यहाँ खत्म नहीं होते - वे आपके साथ जाते हैं।",
+    mantra_en: "Aum Annam Brahma - Food is divine, I consume it with gratitude and reverence",
+    mantra_hi: "ॐ अन्नं ब्रह्म - भोजन दिव्य है, मैं इसे कृतज्ञता और श्रद्धा से ग्रहण करता हूँ",
+    samagri_en: "Blessed sweets (Prasad), Blessed water, Open heart, Gratitude"
+  }
+];
+  {
+    title_en: "Step 2: Sankalp (Sacred Intention)",
+    title_hi: "चरण 2: संकल्प (पवित्र संकल्प)",
+    instruction_en: "Hold flowers and water in your right hand. Stand upright and speak your name clearly. State your intentions - for health, prosperity, family welfare, or spiritual growth. Speak with sincere conviction as you make this sacred promise to the universe.",
+    instruction_hi: "दाहिने हाथ में फूल और जल लें। सीधे खड़े होकर अपना नाम स्पष्ट कहें। अपने इरादे बताएं - स्वास्थ्य, समृद्धि, परिवार के कल्याण या आध्यात्मिक विकास के लिए। ईमानदारी से इस पवित्र वचन को ब्रह्मांड से कहें।",
+    mantra_en: "I [Your Name] perform this sacred Puja for prosperity, health, and spiritual growth of my family",
+    mantra_hi: "मैं [आपका नाम] अपने परिवार की समृद्धि, स्वास्थ्य और आध्यात्मिक विकास के लिए यह पवित्र पूजा करता हूँ",
+    samagri_en: "Flowers, Water, Sincere heart"
+  },
+  {
+    title_en: "Step 3: Kalash Sthapana (Sacred Pitcher)",
+    title_hi: "चरण 3: कलश स्थापना (पवित्र घड़ी)",
+    instruction_en: "Place the Kalash in front of you. Fill it with water. Place coconut on top. Arrange mango leaves around it. The Kalash represents Mother Earth and is the focal point of your worship.",
+    instruction_hi: "कलश को अपने सामने रखें और पानी भरें। ऊपर नारियल रखें। चारों ओर आम की पत्तियाँ लगाएं। कलश माता पृथ्वी का प्रतिनिधि है और पूजा का केंद्र है।",
+    mantra_en: "Om Prithvyai Namah (Salutations to Mother Earth)",
+    mantra_hi: "ॐ पृथ्व्यै नमः (माता पृथ्वी को नमस्कार)",
+    samagri_en: "Kalash, Water, Coconut, Mango leaves"
+  },
+  {
+    title_en: "Step 4: Kalash Puja (Worship the Pitcher)",
+    title_hi: "चरण 4: कलश पूजा (पवित्र घड़ी की पूजा)",
+    instruction_en: "Offer flowers to the Kalash. Apply sandalwood paste. Circumambulate the Kalash clockwise three times. Close your eyes and meditate on the divine energy it represents.",
+    instruction_hi: "कलश को फूल अर्पित करें। चंदन का पेस्ट लगाएं। तीन बार दक्षिणावर्त परिक्रमा करें। आँखें बंद करके दिव्य शक्ति पर ध्यान करें।",
+    mantra_en: "Om Kalashaya Namah (Salutations to the sacred Kalash)",
+    mantra_hi: "ॐ कलशाय नमः (पवित्र कलश को नमस्कार)",
+    samagri_en: "Flowers, Sandalwood paste"
+  },
+  {
+    title_en: "Step 5: Ganesha Puja (Lord of Beginnings)",
+    title_hi: "चरण 5: गणेश पूजा (शुरुआत के भगवान)",
+    instruction_en: "Offer flowers, rice, and sweets to Ganesha. He is the remover of obstacles. Pray for his blessings to complete this Puja successfully and for the removal of all hindrances in your life.",
+    instruction_hi: "गणेश को फूल, चावल और मिठाई अर्पित करें। वे बाधा निवारक हैं। इस पूजा को सफलतापूर्वक पूरा करने और आपके जीवन की बाधाओं को दूर करने के लिए उनका आशीर्वाद माँगें।",
+    mantra_en: "Om Gan Ganapataye Namah (Salutations to Lord Ganesha)",
+    mantra_hi: "ॐ गण गणपतये नमः (भगवान गणेश को नमस्कार)",
+    samagri_en: "Flowers, Uncooked rice, Sweets"
+  },
+  {
+    title_en: "Step 6: Hawan Preparation (Fire Ritual Setup)",
+    title_hi: "चरण 6: हवन तैयारी (अग्नि की तैयारी)",
+    instruction_en: "Prepare the Hawan Kund (fire vessel). Arrange wood carefully and ignite the fire. Have ghee and hawan samagri ready. The fire is the sacred medium that carries your offerings to the divine.",
+    instruction_hi: "हवन कुंड की तैयारी करें। लकड़ी को सावधानी से व्यवस्थित करें और आग जलाएं। घी और सामग्री तैयार रखें। अग्नि वह पवित्र माध्यम है जो आपकी भेंट दिव्य तक पहुँचाती है।",
+    mantra_en: "Om Agnaye Namah (Salutations to the sacred Fire)",
+    mantra_hi: "ॐ अग्नये नमः (पवित्र अग्नि को नमस्कार)",
+    samagri_en: "Hawan Kund, Wood logs, Ghee, Hawan Samagri"
+  },
+  {
+    title_en: "Step 7: Hawan (Fire Offerings)",
+    title_hi: "चरण 7: हवन (अग्नि में आहुति)",
+    instruction_en: "Hold a wooden spoon with ghee. Pronounce the mantra with each offering, then say 'Swaha' and gently pour the ghee into the fire. The fire should rise with each offering. Make at least 21-51 offerings with full concentration. Each offering carries your prayers upward.",
+    instruction_hi: "लकड़ी के चम्मच में घी लें। हर आहुति के समय मंत्र बोलें, फिर 'स्वाहा' कहकर धीरे से घी को आग में डालें। हर आहुति के साथ आग ऊपर उठनी चाहिए। पूरे ध्यान से कम से कम 21-51 आहुति दें। हर आहुति आपकी प्रार्थना को ऊपर ले जाती है।",
+    mantra_en: "Om Satyanarayan Namah Swaha | Om Lakshmi Narayan Namah Swaha | Om Ananta Chakra Namah Swaha",
+    mantra_hi: "ॐ सत्यनारायण नमः स्वाहा | ॐ लक्ष्मी नारायण नमः स्वाहा | ॐ अनंत चक्र नमः स्वाहा",
+    samagri_en: "Clarified ghee, Wooden spoon, Hawan samagri, Dry wood for fire"
+  },
+  {
+    title_en: "Step 8: Satyanarayan Puja (Main Worship)",
+    title_hi: "चरण 8: सत्यनारायण पूजा (मुख्य पूजा)",
+    instruction_en: "Offer flowers, incense, and lamps in front of the Kalash. Rinse tulsi leaves and present them. Offer fruits and sweets. Focus your mind on the divine form of Lord Satyanarayan and his infinite blessings.",
+    instruction_hi: "कलश के सामने फूल, अगरबत्ती और दीपक अर्पित करें। तुलसी को धोकर प्रस्तुत करें। फल और मिठाई अर्पित करें। भगवान सत्यनारायण और उनके असीम आशीर्वाद पर ध्यान केंद्रित करें।",
+    mantra_en: "Om Satyanarayan Namah (Salutations to the Lord of Truth)",
+    mantra_hi: "ॐ सत्यनारायण नमः (सत्य के भगवान को नमस्कार)",
+    samagri_en: "Flowers, Incense, Ghee lamps, Tulsi, Fruits, Sweets"
+  },
+  {
+    title_en: "Step 9: Aarti (Ritual of Lights)",
+    title_hi: "चरण 9: आरती (प्रकाश का अनुष्ठान)",
+    instruction_en: "Light 5-7 oil lamps with ghee. Ring the bell continuously. Move the lamps in circles around the Kalash in a clockwise direction. Feel the divine presence as the light spreads. The flickering flame represents God's presence. Wave the lamps slowly and gracefully as you chant the mantra.",
+    instruction_hi: "5-7 दीये घी से जलाएं। लगातार घंटी बजाएं। दीयों को कलश के चारों ओर दक्षिणावर्त दिशा में घुमाएं। दिव्य उपस्थिति को महसूस करें। लपलपाती लौ भगवान की उपस्थिति को दर्शाती है। मंत्र का जाप करते हुए दीयों को धीरे और सुंदर तरीके से लहराएं।",
+    mantra_en: "Om Jyoti Svarupaya Namah - Om Aarti Bhagavati Namah (I bow to the divine light)",
+    mantra_hi: "ॐ ज्योति स्वरूपाय नमः - ॐ आरती भगवती नमः (दिव्य प्रकाश को नमस्कार)",
+    samagri_en: "Oil lamps, Ghee, Cotton wicks, Bell, Matches/lighter"
+  },
+  {
+    title_en: "Step 10: Katha Path (Sacred Story)",
+    title_hi: "चरण 10: कथा पाठ (पवित्र कहानी)",
+    instruction_en: "Read or listen to the Satyanarayan Katha. This is the most important part of the Puja. The story teaches about truth, righteousness, and the power of sincere devotion. Listen with complete attention and reverence.",
+    instruction_hi: "सत्यनारायण कथा पढ़ें या सुनें। यह पूजा का सबसे महत्वपूर्ण हिस्सा है। कहानी सत्य, धार्मिकता और भक्ति की शक्ति सिखाती है। पूरे ध्यान और श्रद्धा के साथ सुनें।",
+    mantra_en: "The Katha teaches the five merchants who received blessings through Satyanarayan devotion",
+    mantra_hi: "कथा पाँच व्यापारियों के बारे में बताती है जिन्होंने सत्यनारायण की भक्ति से आशीर्वाद पाए",
+    samagri_en: "Satyanarayan Katha book or recording"
+  },
+  {
+    title_en: "Step 11: Parikarma (Circumambulation)",
+    title_hi: "चरण 11: परिक्रमा (देवता की परिक्रमा)",
+    instruction_en: "Walk in circles around the Kalash clockwise 3-7 times. With each round, pray for blessings and divine grace. This sacred walk shows your devotion and completes the energy circuit of the Puja.",
+    instruction_hi: "कलश के चारों ओर दक्षिणावर्त 3-7 बार घूमें। हर राउंड में आशीर्वाद माँगें। यह पवित्र चलना भक्ति को दर्शाता है और पूजा के ऊर्जा चक्र को पूरा करता है।",
+    mantra_en: "Om Satyanarayan Jai Satyanarayan (Continuously chant during circumambulation)",
+    mantra_hi: "ॐ सत्यनारायण जय सत्यनारायण (परिक्रमा के दौरान लगातार जाप करें)",
+    samagri_en: "Just the space around the Kalash"
+  },
+  {
+    title_en: "Step 12: Prasad Distribution (Blessed Food)",
+    title_hi: "चरण 12: प्रसाद वितरण (आशीर्वादित भोजन)",
+    instruction_en: "Distribute the blessed sweets (Prasad) to all family members present. The Prasad is sanctified by the Puja and carries divine blessings. Consume it with reverence and gratitude. This concludes your sacred ceremony.",
+    instruction_hi: "सभी परिवार के सदस्यों को प्रसाद बाँटें। प्रसाद दिव्य आशीर्वाद से भरा है। इसे श्रद्धा और कृतज्ञता से ग्रहण करें। यह आपकी पवित्र पूजा को पूरा करता है।",
+    mantra_en: "Annam Brahma - Food is divine, we consume it with reverence and gratitude",
+    mantra_hi: "अन्नं ब्रह्म - भोजन दिव्य है, हम इसे भक्ति से ग्रहण करते हैं",
+    samagri_en: "Blessed sweets for distribution to all"
+  }
+];
+
+let currentStep = 0;
+
+function toggleLanguage() {
+  language = language === "english" ? "hindi" : "english";
+  document.getElementById("langBtn").innerText = language === "english" ? "Switch Language" : "भाषा बदलें";
+  updateLanguage();
+}
+
+function updateLanguage() {
+  const homeTitle = document.getElementById("homeTitle");
+  const homeDesc = document.getElementById("homeDesc");
+  const samagriTitle = document.getElementById("samagriTitle");
+  const samagriDesc = document.getElementById("samagriDesc");
+
+  if(language === "hindi") {
+    homeTitle.innerText = "सत्यनारायण पूजा";
+    homeDesc.innerText = "पवित्र सत्यनारायण पूजा करने के लिए व्यापक चरण-दर-चरण मार्गदर्शन। इस पवित्र अनुष्ठान के लिए आवश्यक हर मंत्र, अनुष्ठान और तैयारी को जानें।";
+    samagriTitle.innerText = "सामग्री सूची";
+    samagriDesc.innerText = "पूजा शुरू करने से पहले सभी वस्तुएँ एकत्र करें। जैसे-जैसे आप उन्हें एकत्र करें, उन्हें चिन्हित करें।";
+  } else {
+    homeTitle.innerText = "Satyanarayan Puja";
+    homeDesc.innerText = "A comprehensive step-by-step guide to performing the sacred Satyanarayan Puja. Learn each mantra, ritual, and preparation needed for this auspicious ceremony.";
+    samagriTitle.innerText = "Samagri Checklist";
+    samagriDesc.innerText = "Gather all items before starting the Puja. Check them off as you collect them.";
+  }
+
+  if(!document.getElementById("pujaScreen").classList.contains("hidden")) {
+    loadStep();
+  }
+}
+
+function goHome() {
+  document.getElementById("homeScreen").classList.remove("hidden");
+  document.getElementById("samagriScreen").classList.add("hidden");
+  document.getElementById("pujaScreen").classList.add("hidden");
+  currentStep = 0;
+}
+
+function goToSamagri() {
+  document.getElementById("homeScreen").classList.add("hidden");
+  document.getElementById("samagriScreen").classList.remove("hidden");
+  document.getElementById("pujaScreen").classList.add("hidden");
+}
+
+function startPuja() {
+  document.getElementById("homeScreen").classList.add("hidden");
+  document.getElementById("samagriScreen").classList.add("hidden");
+  document.getElementById("pujaScreen").classList.remove("hidden");
+  currentStep = 0;
+  loadStep();
+}
+
+function loadStep() {
+  let step = steps[currentStep];
+
+  document.getElementById("stepCounter").innerText = `Step ${currentStep + 1} of ${steps.length}`;
+  document.getElementById("stepTitle").innerText = language === "english" ? step.title_en : step.title_hi;
+  document.getElementById("instruction").innerText = language === "english" ? step.instruction_en : step.instruction_hi;
+  document.getElementById("mantra").innerText = language === "english" ? step.mantra_en : step.mantra_hi;
+  document.getElementById("samagri").innerText = step.samagri_en;
+}
+
+function nextStep() {
+  currentStep++;
+  if(currentStep < steps.length) {
+    loadStep();
+  } else {
+    showCompletion();
+  }
+}
+
+function showCompletion() {
+  let completionText = language === "english" 
+    ? `<div class="completion-message">
+        <h2>Puja Completed Successfully!</h2>
+        <p>The Satyanarayan Puja has been performed with sincere devotion and reverence.</p>
+        <p>May the blessings of Lord Satyanarayan guide your life towards truth, prosperity, and spiritual growth. May divine grace flow abundantly and bring joy and peace to you and your family.</p>
+        <button onclick="goHome()">Perform Another Puja</button>
+      </div>`
+    : `<div class="completion-message">
+        <h2>पूजा सफलतापूर्वक पूरी हुई!</h2>
+        <p>सत्यनारायण पूजा को पूरी भक्ति और श्रद्धा के साथ किया गया है।</p>
+        <p>भगवान सत्यनारायण के आशीर्वाद आपके जीवन को सत्य, समृद्धि और आध्यात्मिक विकास की ओर ले जाएँ। दिव्य कृपा आपको और आपके परिवार को खुशी और शांति दे।</p>
+        <button onclick="goHome()">दूसरी पूजा करें</button>
+      </div>`;
+  
+  document.getElementById("pujaScreen").innerHTML = completionText;
+}
+
+function playMantraAudio() {
+  let mantraText = document.getElementById("mantra").innerText;
+  const utterance = new SpeechSynthesisUtterance(mantraText);
+  utterance.lang = language === "english" ? "en-US" : "hi-IN";
+  utterance.rate = 0.7;
+  utterance.pitch = 1;
+  utterance.volume = 1;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(utterance);
+}
+
+function playBellSound() {
+  playTone(800, 0.3, 200);
+  setTimeout(() => playTone(750, 0.25, 180), 250);
+  setTimeout(() => playTone(700, 0.2, 150), 450);
+}
+
+function playConchSound() {
+  playTone(250, 0.3, 500);
+  setTimeout(() => playTone(300, 0.35, 600), 550);
+  setTimeout(() => playTone(200, 0.25, 400), 1200);
+}
+
+function playTone(frequency, volume, duration) {
+  try {
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const oscillator = audioContext.createOscillator();
+    const gainNode = audioContext.createGain();
+    
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+    
+    oscillator.frequency.value = frequency;
+    oscillator.type = 'sine';
+    
+    gainNode.gain.setValueAtTime(volume, audioContext.currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + duration / 1000);
+    
+    oscillator.start(audioContext.currentTime);
+    oscillator.stop(audioContext.currentTime + duration / 1000);
+  } catch(e) {
+    console.log('Audio not supported');
+  }
+}
+
+</script>
+
+</body>
+</html>

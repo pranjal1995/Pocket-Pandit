@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Puja",
+  "type": "object",
+  "properties": {
+    "id": {"type": "string"},
+    "slug": {"type": "string"},
+    "name": {"type": "object", "additionalProperties": {"type": "string"}},
+    "shortDescription": {"type": "object", "additionalProperties": {"type": "string"}},
+    "longDescription": {"type": "object", "additionalProperties": {"type": "string"}},
+    "category": {"type": "string"},
+    "difficulty": {"type": "string", "enum": ["easy", "medium", "hard"]},
+    "estimatedMinutes": {"type": "integer"},
+    "languages": {"type": "array", "items": {"type": "string"}},
+    "samagri": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {"type": "object", "additionalProperties": {"type": "string"}},
+          "quantity": {"type": "string"},
+          "notes": {"type": "object", "additionalProperties": {"type": "string"}},
+          "shopUrl": {"type": "string", "format": "uri"}
+        },
+        "required": ["name"]
+      }
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "index": {"type": "integer"},
+          "title": {"type": "object", "additionalProperties": {"type": "string"}},
+          "instruction": {"type": "object", "additionalProperties": {"type": "string"}},
+          "audioUrl": {"type": "string", "format": "uri"},
+          "image": {"type": "string"},
+          "durationSeconds": {"type": "integer"},
+          "needsSamagri": {"type": "array", "items": {"type": "string"}},
+          "optional": {"type": "boolean"}
+        },
+        "required": ["index", "title", "instruction"]
+      }
+    },
+    "panchang": {
+      "type": "object",
+      "properties": {
+        "requiresLocation": {"type": "boolean"},
+        "muhuratNotes": {"type": "object", "additionalProperties": {"type": "string"}}
+      }
+    },
+    "story": {"type": "object", "additionalProperties": {"type": "string"}},
+    "tags": {"type": "array", "items": {"type": "string"}},
+    "premium": {"type": "boolean"},
+    "price": {"type": "number"}
+  },
+  "required": ["id", "name", "steps"]
+}
