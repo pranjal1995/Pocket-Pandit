@@ -1,0 +1,26 @@
+[
+  {
+    "id": "satyanarayan",
+    "slug": "satyanarayan-puja",
+    "name": {"en": "Satyanarayan Puja", "hi": "सत्यनारायण पूजा"},
+    "shortDescription": {"en": "Home puja for prosperity and gratitude.", "hi": "समृद्धि और कृतज्ञता के लिये घर पर की जाने वाली पूजा"},
+    "longDescription": {"en": "A popular Hindu ritual performed for gratitude and blessing.", "hi": "कृतज्ञता और आशीर्वाद के लिये प्रसिद्ध हिन्दू अनुष्ठान।"},
+    "category": "home",
+    "difficulty": "easy",
+    "estimatedMinutes": 60,
+    "languages": ["en", "hi"],
+    "samagri": [
+      {"name": {"en": "Diya (lamp)", "hi": "दीया"}, "quantity": "2", "notes": {"en": "Use ghee for lamps.", "hi": "दीयों में घी का प्रयोग करें"}},
+      {"name": {"en": "Incense sticks", "hi": "अगरबत्ती"}, "quantity": "10", "notes": {"en": "Prefer sandal or rose.", "hi": "साँवला या गुलाब पसंद करें"}}
+    ],
+    "steps": [
+      {"index": 1, "title": {"en": "Sankalp", "hi": "संकल्प"}, "instruction": {"en": "Take a sankalp with your name and gotra.", "hi": "अपने नाम और गोत्र के साथ संकल्प लें।"}, "durationSeconds": 60},
+      {"index": 2, "title": {"en": "Lighting lamp", "hi": "दीप प्रज्वलन"}, "instruction": {"en": "Light the diya and offer to the deity.", "hi": "दीया जलाकर देवता को अर्पित करें।"}, "audioUrl": "", "durationSeconds": 120},
+      {"index": 3, "title": {"en": "Katha", "hi": "कथा"}, "instruction": {"en": "Listen or recite the Satyanarayan Katha.", "hi": "सत्यनारायण कथा सुनें या पाठ करें।"}, "durationSeconds": 1800}
+    ],
+    "panchang": {"requiresLocation": false},
+    "story": {"en": "Tells the story of devotion and blessings.", "hi": "भक्ति और आशीर्वाद की कथा।"},
+    "tags": ["satyanarayan", "home", "festival"],
+    "premium": false
+  }
+]
